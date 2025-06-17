@@ -9,3 +9,5 @@ declare module "next-intl" {
     Formats: typeof formats;
   }
 }
+
+
