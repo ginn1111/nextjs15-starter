@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Montserrat, Geist_Mono } from "next/font/google";
+import "tw-animate-css";
 import "../globals.scss";
 import { hasLocale } from "next-intl";
 import { Locale, routing } from "@/shared/config/i18n/routing";

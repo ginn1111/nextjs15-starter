@@ -5,8 +5,8 @@
 ## Some base setup
 
 - [x] I18n: next-intl
-- [ ] CSS Framework: Tailwind CSS v4, SCSS
-- [ ] Components library: Shadcn UI
+- [x] CSS Framework: Tailwind CSS v4, SCSS
+- [x] Components library: Shadcn UI
 - [ ] Testing framework: Jest + React testing library + Mock service web worker
 - [ ] Data fetching library: React query
 - [ ] Lint and format: biome
