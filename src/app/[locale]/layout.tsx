@@ -5,6 +5,7 @@ import "../globals.scss";
 import { hasLocale } from "next-intl";
 import { Locale, routing } from "@/shared/config/i18n/routing";
 import { notFound } from "next/navigation";
+import Providers from "@/shared/config/providers";
 
 const montserrat = Montserrat({
   variable: "--font-sans",
@@ -37,7 +38,7 @@ export default async function RootLayout({
       <body
         className={`${montserrat.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
