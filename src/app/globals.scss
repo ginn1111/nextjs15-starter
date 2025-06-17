@@ -1,2 +1,15 @@
-@import "tailwindcss";
-@use "normalize.css";
+@use "tailwindcss";
+@import "normalize.css";
+
+@layer base {
+  html {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  body {
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    height: 1px;
+    min-height: 100dvh;
+  }
+}
