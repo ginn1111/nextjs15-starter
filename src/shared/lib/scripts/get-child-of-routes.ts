@@ -1,7 +1,7 @@
-import path from "node:path";
+import path from "node:path"
 
-const BASE_APP_PATH = path.join(import.meta.dirname, "app/[locale]/");
+const BASE_APP_PATH = path.join(import.meta.dirname, "app/[locale]/")
 
 export const getChildOfRoutes = (routeName: string) => {
-  return path.join(BASE_APP_PATH, routeName);
-};
+  return path.join(BASE_APP_PATH, routeName)
+}

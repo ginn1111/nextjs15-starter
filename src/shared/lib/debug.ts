@@ -1,6 +1,5 @@
-import { IS_CLIENT } from "./constants";
+import { IS_CLIENT } from "./constants"
 
 const debugFn = () => {
-  console.log('DEBUG CALL')
+  console.log("DEBUG CALL")
 }
-

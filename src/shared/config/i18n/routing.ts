@@ -1,9 +1,9 @@
-import { defineRouting } from "next-intl/routing";
+import { defineRouting } from "next-intl/routing"
 
-export const locales = ["vi-VN", "en-US"];
-export const defaultLocale = locales[0];
+export const locales = ["vi-VN", "en-US"]
+export const defaultLocale = locales[0]
 
-export type Locale = (typeof locales)[number];
+export type Locale = (typeof locales)[number]
 
 export const routing = defineRouting({
   // A list of all locales that are supported
@@ -18,4 +18,4 @@ export const routing = defineRouting({
   // do not detect locale by accept-language header and cookie
   // just using locale dynamic segment or default locale
   localeDetection: false,
-});
+})

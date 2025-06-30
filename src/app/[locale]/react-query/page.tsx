@@ -1,3 +1,3 @@
 export default () => {
-  return <div>React Query</div>;
-};
+  return <div>React Query</div>
+}

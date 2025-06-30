@@ -1,10 +1,10 @@
-import { Button } from "@/shared/ui/button";
-import axios from "axios";
-import { getTranslations } from "next-intl/server";
+import { Button } from "@/shared/ui/button"
+import axios from "axios"
+import { getTranslations } from "next-intl/server"
 
 const Main = async () => {
-  const t = await getTranslations();
-  const resp = await axios.get('http://localhost:3000/api/todos')
+  const t = await getTranslations()
+  const resp = await axios.get("http://localhost:3000/api/todos")
 
   return (
     <div>
@@ -12,7 +12,7 @@ const Main = async () => {
       <Button>Click me</Button>
       {JSON.stringify(resp.data)}
     </div>
-  );
-};
+  )
+}
 
-export default Main;
+export default Main

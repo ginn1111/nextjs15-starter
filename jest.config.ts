@@ -3,13 +3,13 @@
  * https://jestjs.io/docs/configuration
  */
 
-import type { Config } from "jest";
-import nextJest from "next/jest.js";
+import type { Config } from "jest"
+import nextJest from "next/jest.js"
 
 const createJestConfig = nextJest({
   // Provide the path to your Next.js app to load next.config.js and .env files in your test environment
   dir: "./",
-});
+})
 
 const config: Config = {
   // All imported modules in your tests should be mocked automatically
@@ -204,16 +204,14 @@ const config: Config = {
 
   // Whether to use watchman for file crawling
   // watchman: true,
-};
+}
 
-const asyncConfig = createJestConfig(config);
+const asyncConfig = createJestConfig(config)
 
 // override transformIgnorePatterns for jest-nextjs
 export default async () => {
-  const config = await asyncConfig();
-  config.transformIgnorePatterns = [
-    "node_modules/(?!next-intl|swiper|ssr-window|dom7)/",
-  ];
+  const config = await asyncConfig()
+  config.transformIgnorePatterns = ["node_modules/(?!next-intl|swiper|ssr-window|dom7)/"]
 
-  return config;
-};
+  return config
+}
