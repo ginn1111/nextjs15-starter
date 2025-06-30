@@ -42,7 +42,7 @@
     "jest-environment-jsdom": "^30.0.0",
     "jest-fixed-jsdom": "^0.0.9",
     "lint-staged": "^16.1.2",
-    "msw": "^2.10.2",
+    "msw": "^2.9.0",
     "sass": "^1.89.2",
     "tailwindcss": "^4",
     "ts-node": "^10.9.2",

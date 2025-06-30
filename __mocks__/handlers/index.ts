@@ -1,3 +1,3 @@
-import { handlers as todoHandlers } from "./todos"
+import { handlers as todoHandlers } from "./todo"
 
 export const handlers = [...todoHandlers /* more handlers */]

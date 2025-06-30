@@ -6,8 +6,8 @@ const MockProvider = ({ children }: { children: ReactNode }) => {
     ;(async () => {
       try {
         if (process.env.NEXT_PUBLIC_API_MOCKING === "enabled") {
-          const { worker } = await import("__mocks__/msw/browser")
-          await worker.start({ onUnhandledRequest: "bypass" })
+          const { worker } = await import("@mocks/browser")
+          await worker.start({ onUnhandledRequest: "warn" })
           setInit(false)
         } else {
           setInit(false)

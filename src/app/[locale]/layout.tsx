@@ -6,7 +6,7 @@ import { hasLocale } from "next-intl"
 import { type Locale, routing } from "@/shared/config/i18n/routing"
 import { notFound } from "next/navigation"
 import Providers from "@/shared/config/providers"
-import { initMocks } from "__mocks__/msw"
+import { initMocks } from "@mocks/index"
 
 const montserrat = Montserrat({
   variable: "--font-sans",

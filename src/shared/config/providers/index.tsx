@@ -3,7 +3,7 @@
 
 import { isServer, QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import MockProvider from "./MockProvider"
-import { initMocks } from "__mocks__/msw"
+import { initMocks } from "@mocks/index"
 
 function makeQueryClient() {
   return new QueryClient({

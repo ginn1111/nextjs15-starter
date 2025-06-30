@@ -1,18 +1,19 @@
 import "@testing-library/jest-dom"
-import { server } from "./__mocks__/msw/server"
+import { server } from "@mocks/server"
 
 beforeAll(() => {
-  // Start the interception.
+  // Enable API mocking before all the tests.
   server.listen()
 })
 
 afterEach(() => {
-  // Remove any handlers you may have added
-  // in individual tests (runtime handlers).
+  // Reset the request handlers between each test.
+  // This way the handlers we add on a per-test basis
+  // do not leak to other, irrelevant tests.
   server.resetHandlers()
 })
 
 afterAll(() => {
-  // Disable request interception and clean up.
+  // Finally, disable API mocking after the tests are done.
   server.close()
 })

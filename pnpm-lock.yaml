@@ -85,7 +85,7 @@ importers:
         specifier: ^16.1.2
         version: 16.1.2
       msw:
-        specifier: ^2.10.2
+        specifier: ^2.9.0
         version: 2.10.2(@types/node@20.19.2)(typescript@5.8.3)
       sass:
         specifier: ^1.89.2

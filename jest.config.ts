@@ -7,7 +7,6 @@ import type { Config } from "jest"
 import nextJest from "next/jest.js"
 
 const createJestConfig = nextJest({
-  // Provide the path to your Next.js app to load next.config.js and .env files in your test environment
   dir: "./",
 })
 
@@ -25,13 +24,13 @@ const config: Config = {
   clearMocks: true,
 
   // Indicates whether the coverage information should be collected while executing the test
-  // collectCoverage: false,
+  // collectCoverage: true,
 
   // An array of glob patterns indicating a set of files for which coverage information should be collected
   // collectCoverageFrom: undefined,
 
   // The directory where Jest should output its coverage files
-  // coverageDirectory: undefined,
+  coverageDirectory: "coverage",
 
   // An array of regexp pattern strings used to skip coverage collection
   // coveragePathIgnorePatterns: [
@@ -79,9 +78,7 @@ const config: Config = {
   // maxWorkers: "50%",
 
   // An array of directory names to be searched recursively up from the requiring module's location
-  // moduleDirectories: [
-  //   "node_modules"
-  // ],
+  moduleDirectories: ["node_modules", "./src/shared/config/test"],
 
   // An array of file extensions your modules use
   // moduleFileExtensions: [
@@ -90,17 +87,15 @@ const config: Config = {
   //   "cjs",
   //   "jsx",
   //   "ts",
-  //   "mts",
-  //   "cts",
   //   "tsx",
   //   "json",
   //   "node"
   // ],
 
   // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
-  // moduleNameMapper: {
-  //   "@/(.*)": "<rootDir>/src/$1",
-  // },
+  moduleNameMapper: {
+    "@/(.*)": "<rootDir>/src/$1",
+  },
 
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
   // modulePathIgnorePatterns: [],
@@ -144,10 +139,11 @@ const config: Config = {
   // runner: "jest-runner",
 
   // The paths to modules that run some code to configure or set up the testing environment before each test
-  // setupFiles: [],
+  setupFilesAfterEnv: ["<rootDir>/jest.setup.ts"],
+  // setupFiles: ["dotenv/config"],
 
   // A list of paths to modules that run some code to configure or set up the testing framework before each test
-  setupFilesAfterEnv: ["./jest.setup.ts"],
+  // setupFilesAfterEnv: [],
 
   // The number of seconds after which a test is considered as slow and reported as such in the results.
   // slowTestThreshold: 5,
@@ -156,25 +152,21 @@ const config: Config = {
   // snapshotSerializers: [],
 
   // The test environment that will be used for testing
-  // fixed for mock service webwoker
   testEnvironment: "jest-fixed-jsdom",
 
   // Options that will be passed to the testEnvironment
   // testEnvironmentOptions: {},
-
+  testEnvironmentOptions: {
+    customExportConditions: [""], // https://mswjs.io/docs/migrations/1.x-to-2.x#requestresponsetextencoder-is-not-defined-jest
+  },
   // Adds a location field to test results
   // testLocationInResults: false,
 
   // The glob patterns Jest uses to detect test files
-  // testMatch: [
-  //   "**/__tests__/**/*.?([mc])[jt]s?(x)",
-  //   "**/?(*.)+(spec|test).?([mc])[jt]s?(x)"
-  // ],
+  testMatch: ["**/__tests__/**/*.[jt]s?(x)"],
 
   // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
-  // testPathIgnorePatterns: [
-  //   "/node_modules/"
-  // ],
+  // testPathIgnorePatterns: ["/node_modules/"],
 
   // The regexp pattern or array of patterns that Jest uses to detect test files
   // testRegex: [],
@@ -186,13 +178,14 @@ const config: Config = {
   // testRunner: "jest-circus/runner",
 
   // A map from regular expressions to paths to transformers
-  // transform: undefined,
-
+  // transform: {
+  //   "^.+\\.css$": "jest-transform-stub",
+  // },
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
   // transformIgnorePatterns: [
-  //   "node_modules/(?!next-intl|swiper|ssr-window|dom7)/",
+  //   "/node_modules/",
+  //   "\\.pnp\\.[^\\/]+$"
   // ],
-
   // An array of regexp pattern strings that are matched against all modules before the module loader will automatically return a mock for them
   // unmockedModulePathPatterns: undefined,
 
@@ -205,10 +198,10 @@ const config: Config = {
   // Whether to use watchman for file crawling
   // watchman: true,
 }
-
 const asyncConfig = createJestConfig(config)
 
-// override transformIgnorePatterns for jest-nextjs
+// export default asyncConfig;
+
 export default async () => {
   const config = await asyncConfig()
   config.transformIgnorePatterns = ["node_modules/(?!next-intl|swiper|ssr-window|dom7)/"]

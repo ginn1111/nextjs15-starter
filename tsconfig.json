@@ -1,9 +1,9 @@
 {
   "compilerOptions": {
-    "target": "ES2017",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
+    "allowArbitraryExtensions": true,
     "strict": true,
     "noEmit": true,
     "esModuleInterop": true,
@@ -19,16 +19,14 @@
       }
     ],
     "paths": {
-      "__mocks__/*": ["./__mocks__/*"],
-      "@/*": ["./src/*"]
-    }
+      "@/*": ["./src/*"],
+      "test-util": ["./src/shared/config/test/test-util"],
+      "@icons/*": ["./src/shared/ui/icons/*"],
+      "@mocks/*": ["./__mocks__/*"],
+      "@/public/*": ["./public/*"]
+    },
+    "target": "ES2017"
   },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    ".next/types/**/*.ts",
-    "./src/@types/global.d.ts"
-  ],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
   "exclude": ["node_modules"]
 }
