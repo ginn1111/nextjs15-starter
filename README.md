@@ -12,7 +12,7 @@
 - [x] Lint and format: biome
 - [x] Repository management: lint-staged, husky
 - [x] Package management: pnpm
-- [ ] UI Workshop/visualize testing: Storybook
+- [x] UI Workshop/visualize testing: Storybook
 - [ ] Authentication, authorization management: NextAuth
 
 ---
