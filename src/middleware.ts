@@ -1,10 +1,8 @@
+import { locales, routing } from "@/shared/config/i18n/routing"
 import { withAuth } from "next-auth/middleware"
 import createMiddleware from "next-intl/middleware"
-import { defaultLocale, locales, routing } from "@/shared/config/i18n/routing"
-import { jwtVerify } from "jose"
 import type { NextRequest } from "next/server"
-import { init } from "next/dist/compiled/webpack/webpack"
-import { jwt, nextAuthConfig } from "./shared/lib/next-auth-options"
+import { nextAuthConfig } from "./shared/lib/next-auth-options"
 
 const intlMiddleware = createMiddleware(routing)
 
