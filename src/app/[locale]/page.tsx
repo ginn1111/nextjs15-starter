@@ -9,7 +9,7 @@ const Main = async () => {
 
   return (
     <div>
-      <h1>{t("main")}</h1>
+      <h1 className="en:text-20 vi:text-40">{t("main")}</h1>
       <Button>Click me</Button>
       {JSON.stringify(resp.data)}
     </div>
