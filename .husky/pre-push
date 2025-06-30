@@ -1,2 +1,2 @@
 #!/bin/sh
-pnpm test -- --bail --findRelatedTests
+pnpm test -- --bail --findRelatedTests --passWithNoTests
