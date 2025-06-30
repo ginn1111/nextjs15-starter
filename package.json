@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "dev:mock": "NEXT_PUBLIC_API_MOCKING=enabled next dev --turbopack",
+    "dev:all": "concurrently 'pnpm dev' 'pnpm storybook'",
     "build": "next build",
     "start": "next start",
     "lint": "pnpm exec biome lint .",
@@ -59,6 +59,7 @@
     "@vitest/browser": "^3.2.4",
     "@vitest/coverage-v8": "^3.2.4",
     "chromatic": "^13.0.1",
+    "concurrently": "^9.2.0",
     "dotenv": "^17.0.0",
     "jest": "^30.0.0",
     "jest-environment-jsdom": "^30.0.0",
