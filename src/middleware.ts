@@ -2,7 +2,7 @@ import { withAuth } from "next-auth/middleware"
 import createMiddleware from "next-intl/middleware"
 import { defaultLocale, locales, routing } from "@/shared/config/i18n/routing"
 import { jwtVerify } from "jose"
-import { NextRequest } from "next/server"
+import type { NextRequest } from "next/server"
 import { init } from "next/dist/compiled/webpack/webpack"
 import { jwt, nextAuthConfig } from "./shared/lib/next-auth-options"
 

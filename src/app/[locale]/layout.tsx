@@ -2,11 +2,12 @@ import type { Metadata } from "next"
 import { Montserrat, Geist_Mono } from "next/font/google"
 import "tw-animate-css"
 import "../globals.scss"
-import { hasLocale } from "next-intl"
+import { hasLocale, NextIntlClientProvider } from "next-intl"
 import { type Locale, routing } from "@/shared/config/i18n/routing"
 import { notFound } from "next/navigation"
 import Providers from "@/shared/config/providers"
 import { initMocks } from "@mocks/index"
+import { cn } from "@/shared/lib/utils"
 
 const montserrat = Montserrat({
   variable: "--font-sans",
@@ -38,10 +39,13 @@ export default async function RootLayout({
   if (!hasLocale(routing.locales, locale)) {
     notFound()
   }
+
   return (
-    <html lang={locale}>
-      <body className={`${montserrat.variable} ${geistMono.variable} antialiased`}>
-        <Providers>{children}</Providers>
+    <html lang={locale} className={cn(montserrat.variable, geistMono.variable)}>
+      <body>
+        <Providers>
+          <NextIntlClientProvider locale={locale}>{children}</NextIntlClientProvider>
+        </Providers>
       </body>
     </html>
   )

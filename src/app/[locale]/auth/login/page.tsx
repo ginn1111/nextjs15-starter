@@ -7,18 +7,17 @@ export default function LoginPage() {
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
   const [loading, setLoading] = useState(false)
-  const router = useRouter()
   const searchParams = useSearchParams()
   const error = searchParams.get("error")
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
     setLoading(true)
-    const res = await signIn("credentials", {
+    await signIn("credentials", {
       username,
       password,
       redirect: true,
-      callbackUrl: "/protected",
+      callbackUrl: searchParams.get("callbackUrl") || "/protected",
     })
     setLoading(false)
   }

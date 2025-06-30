@@ -5,6 +5,8 @@ export class URLBuilder {
   private pathname: string
   private query: Record<string, string>
 
+  public static TODOS = "/api/todos"
+
   constructor() {
     this.baseURL = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"
     this.pathname = ""
