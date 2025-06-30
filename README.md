@@ -13,7 +13,7 @@
 - [x] Repository management: lint-staged, husky
 - [x] Package management: pnpm
 - [x] UI Workshop/visualize testing: Storybook
-- [ ] Authentication, authorization management: NextAuth
+- [x] Authentication, authorization management: NextAuth
 
 ---
 
@@ -73,3 +73,13 @@ This project uses [Biome](https://biomejs.dev/) for formatting and linting, inte
 Feel free to use and pls leave a star for me.
 
 Happy coding :))
+
+---
+
+## Authentication Example
+
+- Visit `/[locale]/auth/login` to log in with credentials:
+  - alice / password123
+  - bob / password456
+- After login, access `/[locale]/protected` for a protected page.
+- Use the sign out button or visit `/[locale]/auth/signout` to log out.

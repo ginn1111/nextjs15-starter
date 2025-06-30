@@ -4,6 +4,7 @@
 import { isServer, QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import MockProvider from "./MockProvider"
 import { initMocks } from "@mocks/index"
+import AuthSessionProvider from "@/shared/providers/SessionProvider"
 
 function makeQueryClient() {
   return new QueryClient({
@@ -42,7 +43,9 @@ export default function Providers({ children }: { children: React.ReactNode }) {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <MockProvider>{children}</MockProvider>
+      <AuthSessionProvider>
+        <MockProvider>{children}</MockProvider>
+      </AuthSessionProvider>
     </QueryClientProvider>
   )
 }

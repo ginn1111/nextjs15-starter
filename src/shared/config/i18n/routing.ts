@@ -14,8 +14,4 @@ export const routing = defineRouting({
 
   // trim locale prefix when it match the default locale
   localePrefix: "as-needed", // "always" | "never" | "as-needed"
-
-  // do not detect locale by accept-language header and cookie
-  // just using locale dynamic segment or default locale
-  localeDetection: false,
 })
