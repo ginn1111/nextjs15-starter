@@ -1,2 +1,2 @@
 #!/bin/sh
-pnpm test -- --bail --findRelatedTests --passWithNoTests
+pnpm test --bail --coverage 

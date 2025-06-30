@@ -7,15 +7,34 @@
 - [x] I18n: next-intl
 - [x] CSS Framework: Tailwind CSS v4, SCSS
 - [x] Components library: Shadcn UI
-- [x] Testing framework: Jest + React testing library + Mock service web worker
-- [ ] Data fetching library: React query
-- [ ] Lint and format: biome
-- [ ] Repository management: lint-staged, husky
-- [ ] Package management: yarn
-- [ ] UI Workshop/ visualize testing: Storybook
+- [x] Testing framework: Jest + React Testing Library + Mock Service Worker (MSW)
+- [x] Data fetching library: React Query
+- [x] Lint and format: biome
+- [x] Repository management: lint-staged, husky
+- [x] Package management: pnpm
+- [ ] UI Workshop/visualize testing: Storybook
 - [ ] Authentication, authorization management: NextAuth
 
 ---
+
+## API Mocking & Testing
+
+This project uses [MSW (Mock Service Worker)](https://mswjs.io/) for API mocking in both browser and test environments. The setup is integrated with Jest and React Testing Library for robust frontend testing.
+
+- **Enable API mocking in development:**
+  - Start dev server with mocks enabled:
+    ```sh
+    pnpm dev:mock
+    ```
+  - This sets `NEXT_PUBLIC_API_MOCKING=enabled` and automatically starts MSW in the browser.
+- **MockProvider:**
+  - The app is wrapped with a `MockProvider` that conditionally starts MSW when mocking is enabled.
+- **Testing:**
+  - Run all tests:
+    ```sh
+    pnpm test
+    ```
+  - Tests use MSW to mock API endpoints and ensure consistent, isolated test results.
 
 ## Code Quality Automation
 
@@ -42,15 +61,15 @@ This project uses [Biome](https://biomejs.dev/) for formatting and linting, inte
 - If your commit is blocked, check the output for Biome errors and fix them.
 - To run Biome manually on all files:
   ```sh
-  npx biome format . --write
-  npx biome lint .
+  pnpm biome format . --write
+  pnpm biome lint .
   ```
 - If Husky hooks are not running, ensure `.husky/pre-commit` exists and is executable.
 
-### Yarn as Package Manager
-- This project uses Yarn (see `packageManager` in `package.json`).
-- All pre-commit and lint-staged commands use `yarn` for consistency.
+### pnpm as Package Manager
+- This project uses pnpm (see `packageManager` in `package.json`).
+- All pre-commit and lint-staged commands use `pnpm` for consistency.
 
-Feel free to use and pls leave a start for me.
+Feel free to use and pls leave a star for me.
 
 Happy coding :))
